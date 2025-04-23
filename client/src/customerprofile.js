@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import "./profile.css";
 import { BASE_URL } from "./util/util";
 
@@ -8,7 +7,6 @@ const CustomerProfile = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProfile = async () => {
