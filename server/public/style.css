@@ -1,0 +1,38 @@
+html,
+body {
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  max-width: 500px;
+  width: 100%;
+}
+form label {
+  display: grid;
+}
+form input {
+  height: 40px;
+  width: 100%;
+  padding: 0 10px;
+}
+form button {
+  height: 40px;
+  margin-top: 10px;
+  width: 100%;
+  color: white;
+  background-color: black;
+}
+form {
+  box-shadow: 2px 2px 3px rgb(194, 194, 194);
+  padding: 30px;
+  border-radius: 10px;
+}

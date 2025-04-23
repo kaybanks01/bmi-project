@@ -1,0 +1,166 @@
+.auth-body {
+  display: flex;
+  height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #e8d1bb, #c31a1a);
+}
+
+.auth-container {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.left-section,
+.right-section {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-section {
+  background: #f0f4f8;
+  text-align: center;
+}
+
+.left-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.left-section p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.left-section a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.right-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.2s ease;
+}
+
+input:focus {
+  border-color: #0077cc;
+  outline: none;
+}
+
+button {
+  padding: 12px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #7aa8d8;
+}
+
+button:hover:not(:disabled) {
+  background-color: #005fa3;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 1rem;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+
+@media (max-width: 1024px) {
+  .auth-container {
+    width: 90%;  
+  }
+
+  .left-section,
+  .right-section {
+    padding: 2rem;  
+  }
+
+  .left-section h2,
+  .right-section h2 {
+    font-size: 1.75rem;
+  }
+
+  input {
+    font-size: 0.95rem;  
+  }
+
+  button {
+    font-size: 0.95rem;  
+  }
+}
+
+@media (max-width: 600px) {
+  .auth-body {
+    flex-direction: column; 
+    height: auto;
+  }
+
+  .auth-container {
+    width: 100%;  
+    flex-direction: column;  
+    border-radius: 0;  
+  }
+
+  .left-section,
+  .right-section {
+    padding: 1.5rem;  
+  }
+
+  .left-section h2,
+  .right-section h2 {
+    font-size: 1.5rem;  
+  }
+
+  input {
+    font-size: 0.9rem;  
+    padding: 10px;  
+  }
+
+  button {
+    font-size: 0.9rem;  
+    padding: 10px; 
+  }
+
+  .social-icons {
+    gap: 10px; 
+  }
+}

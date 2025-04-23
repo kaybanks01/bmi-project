@@ -1,0 +1,18 @@
+.action-edit{
+    color: green;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: 2px solid  green ;
+    padding: 2px;
+    border-radius: 3px;
+    
+}
+
+.action-del{
+    color: rgb(249, 26, 10);
+    margin-right: 10px;   
+    border: 2px solid  rgb(247, 33, 5) ;
+    padding: 2px;
+    border-radius: 3px;
+   
+}

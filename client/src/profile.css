@@ -1,0 +1,88 @@
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .update-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .update-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .message {
+    text-align: center;
+    color: red;
+  }
+  @media (max-width: 768px) {
+    .profile-container {
+      max-width: 90%;
+      margin: 20px auto;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    .form-group input {
+      font-size: 16px;
+    }
+  
+    .update-btn {
+      font-size: 16px;
+      padding: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .profile-container {
+      max-width: 95%;
+    }
+  
+    .form-group input {
+      font-size: 18px;
+    }
+  
+    .update-btn {
+      font-size: 18px;
+      padding: 15px;
+    }
+  }
+  
+  

@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  width: 800px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.signupleft-section {
+  display: flex;
+  flex-direction: column;
+  background: #51ff00;
+  color: white;
+  padding: 40px;
+  width: 50%;
+  text-align: center;
+  justify-content: center;
+}
+
+.signupleft-section h2 {
+  margin-bottom: 20px;
+}
+
+.signupleft-section p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.signin-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signupright-section {
+  width: 50%;
+  padding: 40px;
+  text-align: center;
+}
+
+.signupright-section h2 {
+  margin-bottom: 20px;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #6ebb3a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #acb5be;
+}
+
+.social-icons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-icons img {
+  width: 30px;
+  cursor: pointer;
+}
+
+.error {
+  color: rgb(228, 63, 63);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.success {
+  color: green;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
+
+  .signupleft-section {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .signupright-section {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .signupleft-section {
+    padding: 15px;
+  }
+
+  .signupright-section {
+    padding: 15px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .social-icons img {
+    width: 25px;
+  }
+
+  .error {
+    font-size: 10px;
+  }
+
+  .success {
+    font-size: 12px;
+  }
+}

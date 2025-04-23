@@ -1,0 +1,214 @@
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  
+  .dashboard-sidenav {
+    width: 220px;
+    background-color: #1e1e2f;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .dashboard-logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .dashboard-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 1;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .nav-item:hover {
+    background-color: #33334d;
+  }
+  
+  .nav-icon {
+    margin-right: 10px;
+  }
+  
+  /* Logout Button */
+  .logout-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: #e03e3e;
+  }
+  
+  /* Main Section */
+  .dashboard-main {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #f5f7fa;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .profile-circle {
+    background-color: #1e1e2f;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  @media (max-width: 1024px) {
+    .dashboard-container {
+      flex-direction: column;
+    }
+  
+    .dashboard-sidenav {
+      width: 100%;
+      height: auto;
+      padding: 15px;
+      position: relative;
+    }
+  
+    .dashboard-logo {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .dashboard-nav {
+      flex-direction: row;
+      gap: 15px;
+      justify-content: space-between;
+    }
+  
+    .nav-item {
+      padding: 8px;
+    }
+  
+    .dashboard-main {
+      padding: 20px;
+    }
+  
+    .dashboard-header {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .profile-circle {
+      width: 35px;
+      height: 35px;
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-container {
+      flex-direction: column;
+    }
+  
+    .dashboard-sidenav {
+      width: 100%;
+      height: auto;
+      padding: 10px;
+    }
+  
+    .dashboard-logo {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+  
+    .dashboard-nav {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .nav-item {
+      padding: 8px;
+    }
+  
+    .dashboard-main {
+      padding: 15px;
+    }
+  
+    .dashboard-header {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .profile-circle {
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .dashboard-container {
+      flex-direction: column;
+    }
+  
+    .dashboard-sidenav {
+      width: 100%;
+      padding: 8px;
+    }
+  
+    .dashboard-logo {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  
+    .dashboard-nav {
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    .nav-item {
+      padding: 6px;
+    }
+  
+    .dashboard-main {
+      padding: 10px;
+    }
+  
+    .dashboard-header {
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    .profile-circle {
+      width: 25px;
+      height: 25px;
+      font-size: 12px;
+    }
+  }
+  
+  

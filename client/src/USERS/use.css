@@ -1,0 +1,135 @@
+.users-container {
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+    min-height: 100vh;
+}
+  
+.users-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background: #343a40;
+    color: white;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.action-del {
+    color: #e63946;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.action-del:hover {
+    text-decoration: underline;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-header h2 {
+    margin-bottom: 1rem;
+}
+
+.modal-btn {
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-btn.confirm {
+    background: #28a745;
+    color: white;
+}
+
+.modal-btn.cancel {
+    background: #ccc;
+    color: #333;
+}
+
+
+@media (max-width: 1024px) {
+    .users-container h1 {
+        font-size: 1.75rem;  
+    }
+
+    table {
+        font-size: 0.9rem;  
+    }
+
+    .modal-container {
+        width: 250px;  
+    }
+
+    .modal-btn {
+        padding: 0.4rem 0.8rem;  
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .users-container {
+        padding: 1.5rem;  
+    }
+
+    .users-container h1 {
+        font-size: 1.5rem;
+        text-align: center;  
+    }
+
+    table {
+        font-size: 0.85rem;  
+    }
+
+    .modal-container {
+        width: 90%;  
+        padding: 1.5rem; 
+    }
+
+    .modal-btn {
+        padding: 0.3rem 0.6rem; 
+        font-size: 12px;
+    }
+}

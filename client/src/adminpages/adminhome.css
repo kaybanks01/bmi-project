@@ -1,0 +1,103 @@
+.admin-home {
+    padding: 2rem;
+    background: #f9fafb;
+    min-height: 100vh;
+    color: #333;
+  }
+  
+  .dashboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    color: #1f2937;
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 180px;
+    text-align: center;
+    color: #4b5563;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-icon {
+    font-size: 3rem;
+    padding: 1.2rem;
+    background-color: #e0f7fa;
+    border-radius: 50%;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-value {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 10px 0;
+    color: #1f2937;
+  }
+  
+  .card-label {
+    font-size: 1rem;
+    color: #6b7280;
+  }
+  
+  .card-icon.users {
+    background-color: #3b82f6;
+  }
+  
+  .card-icon.products {
+    background-color: #10b981;
+  }
+  
+  .card-icon.orders {
+    background-color: #f59e0b;
+  }
+  
+  .card-icon.revenue {
+    background-color: #ef4444;
+  }
+  
+  
+  @media (max-width: 1024px) {
+    .admin-home {
+      padding: 1.5rem;
+    }
+  
+    .dashboard-title {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+  
+    .card {
+      flex-direction: column;
+      justify-content: center;
+      height: auto;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .card-icon {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+  
+    .card-value {
+      font-size: 1.75rem;
+    }
+  
+    .card-label {
+      font-size: 0.9rem;
+    }
+  }
+  
