@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const router = require("./routes.js");
 const morgan = require("morgan");
-const helmet = require("helmet");
+// const helmet = require("helmet");
 const cors = require("cors");
 const { connectDB } = require("./config/db.js");
 const session = require("express-session");
@@ -68,11 +68,11 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
-app.use(
-  helmet({
-    crossOriginResourcePolicy: false,
-  })
-);
+// app.use(
+//   helmet({
+//     crossOriginResourcePolicy: false,
+//   })
+// );
 app.use("/upload", express.static(path.join(__dirname, "upload")));
 
 app.use("/public", express.static(__dirname + "/public"));
