@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const router = require("./routes.js");
 const morgan = require("morgan");
-// const helmet = require("helmet");
+const helmet = require("helmet");
 const cors = require("cors");
 const { connectDB } = require("./config/db.js");
 const session = require("express-session");
@@ -36,7 +36,7 @@ session({
 });
 
 app.use(express.json());
-const allowedOrigins = ["https://bmi-shop.vercel.app"]; 
+const allowedOrigins = ["https://bmi-shop.vercel.app"];
 
 const corsOptions = {
   origin: (origin, callback) => {
@@ -46,7 +46,7 @@ const corsOptions = {
       callback(new Error("Not allowed by CORS"));
     }
   },
-  credentials: true, 
+  credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
 };
@@ -57,7 +57,7 @@ app.use(
     resave: false,
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URI,
-      ttl: 14 * 24 * 60 * 60, 
+      ttl: 14 * 24 * 60 * 60,
     }),
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 14,
@@ -68,11 +68,11 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
-// app.use(
-//   helmet({
-//     crossOriginResourcePolicy: false,
-//   })
-// );
+app.use(
+  helmet({
+    crossOriginResourcePolicy: false,
+  })
+);
 app.use("/upload", express.static(path.join(__dirname, "upload")));
 
 app.use("/public", express.static(__dirname + "/public"));
