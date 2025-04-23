@@ -13,8 +13,8 @@ const { ObjectId } = require("mongodb");
 
 dotenv.config();
 
-const Stripe = require('stripe');
-const stripe = Stripe("sk_test_51R4gPL5NtYKOBzAwBHViQ9zaUTSne4L7Bovezqwce2WmhZ22J9uhHvp4tHbWLjGJK6BudDJZ2MCRSgfH2FpZ10Wz00mQckBpHS");
+const Stripe = require("stripe");
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const client_url = process.env.CLIENT_URL;
 
 let gridfsBucket;
@@ -28,11 +28,12 @@ conn.once("open", () => {
 const storage = multer.memoryStorage();
 const Upload = multer({ storage });
 
-
 const authMiddleware = async (req, res, next) => {
   try {
     if (!req.session.user) {
-      return res.status(401).send({ message: "Unauthorized user, please login" });
+      return res
+        .status(401)
+        .send({ message: "Unauthorized user, please login" });
     }
     next();
   } catch (err) {
@@ -40,16 +41,16 @@ const authMiddleware = async (req, res, next) => {
   }
 };
 
-
 router.post("/signin", async (req, res) => {
   const { email, password } = req.body;
 
   try {
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: "Invalid credentials" });
-    
+
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ message: "Invalid credentials" });
+    if (!isMatch)
+      return res.status(400).json({ message: "Invalid credentials" });
 
     req.session.user = { userId: user._id, email: user.email, role: user.role };
     return res.status(200).json({ message: "Login success" });
@@ -58,7 +59,6 @@ router.post("/signin", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
-
 
 router.post("/signup", async (req, res) => {
   const { username, email, password } = req.body;
@@ -80,7 +80,6 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-
 router.get("/dashboard", authMiddleware, async (req, res) => {
   try {
     const { userId } = req.session.user;
@@ -92,7 +91,6 @@ router.get("/dashboard", authMiddleware, async (req, res) => {
   }
 });
 
-
 router.get("/users", async (req, res) => {
   try {
     const users = await User.find().sort({ createdAt: -1 });
@@ -102,8 +100,6 @@ router.get("/users", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
-
-
 
 router.patch("/users/edit", authMiddleware, async (req, res) => {
   const { username, email, password } = req.body;
@@ -132,7 +128,6 @@ router.patch("/users/edit", authMiddleware, async (req, res) => {
   }
 });
 
-
 router.post("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) return res.status(500).send({ message: "Logout failed" });
@@ -140,7 +135,6 @@ router.post("/logout", (req, res) => {
     res.status(200).send({ message: "Logged out successfully" });
   });
 });
-
 
 router.get("/products", async (req, res) => {
   try {
@@ -152,29 +146,40 @@ router.get("/products", async (req, res) => {
   }
 });
 
-
 router.delete("/products/:id", async (req, res) => {
   try {
     const productId = req.params.id;
     const deletedProduct = await Product.findByIdAndDelete(productId);
 
     if (!deletedProduct) {
-      return res.status(404).json({ success: false, message: "Product not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Product not found" });
     }
 
-    return res.status(200).json({ success: true, message: "Product deleted successfully" });
+    return res
+      .status(200)
+      .json({ success: true, message: "Product deleted successfully" });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ success: false, message: "Server error" });
   }
 });
 
-
 router.post("/upload", Upload.single("file"), async (req, res) => {
   try {
-    const { productName, productDescription, price, discountPrice, stock, category } = req.body;
+    const {
+      productName,
+      productDescription,
+      price,
+      discountPrice,
+      stock,
+      category,
+    } = req.body;
 
-    const uploadStream = gridfsBucket.openUploadStream(req.file.originalname, { contentType: req.file.mimetype });
+    const uploadStream = gridfsBucket.openUploadStream(req.file.originalname, {
+      contentType: req.file.mimetype,
+    });
 
     uploadStream.end(req.file.buffer);
 
@@ -189,14 +194,15 @@ router.post("/upload", Upload.single("file"), async (req, res) => {
         image: file._id,
       });
       await product.save();
-      return res.status(200).send({ message: "Product uploaded successfully", product });
+      return res
+        .status(200)
+        .send({ message: "Product uploaded successfully", product });
     });
   } catch (err) {
     console.error(err);
     return res.status(500).send({ message: "Internal server error" });
   }
 });
-
 
 router.get("/file/:id", async (req, res) => {
   try {
