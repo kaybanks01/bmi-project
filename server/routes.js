@@ -13,9 +13,9 @@ const { ObjectId } = require("mongodb");
 
 dotenv.config();
 
-const Stripe = require("stripe");
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
-const client_url = process.env.CLIENT_URL;
+// const Stripe = require("stripe");
+// const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+// const client_url = process.env.CLIENT_URL;
 
 let gridfsBucket;
 conn.once("open", () => {
