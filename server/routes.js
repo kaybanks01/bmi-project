@@ -19,7 +19,7 @@ dotenv.config();
 
 let gridfsBucket;
 conn.once("open", () => {
-  gridfsBucket = new GridFSBucket(conn.db, {
+  gridfsBucket = new mongoose.mongo.GridFSBucket(conn.db, {
     bucketName: "uploads",
   });
   console.log("GridFSBucket initialized");
@@ -183,16 +183,17 @@ router.post("/upload", Upload.single("file"), async (req, res) => {
 
     uploadStream.end(req.file.buffer);
 
-    uploadStream.on("finish", async (file) => {
-      const product = new Product({
+    uploadStream.on("finish", async () => {
+      const fileId = new Product({
         productName,
         productDescription,
         price,
         discountPrice,
         stock,
         category,
-        image: file._id,
+        image: fileId,
       });
+
       await product.save();
       return res
         .status(200)
@@ -206,7 +207,7 @@ router.post("/upload", Upload.single("file"), async (req, res) => {
 
 router.get("/file/:id", async (req, res) => {
   try {
-    const fileId = new ObjectId(req.params.id);
+    const fileId = new mongoose.Types.ObjectId(req.params.id);
     const files = await gridfsBucket.find({ _id: fileId }).toArray();
 
     if (!files || files.length === 0) {
