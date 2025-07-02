@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import EditProductModal from './EditProductModal';
-// import DeleteConfirmationModal from './DeleteConfirmationModal';
+import DeleteConfirmationModal from './DeleteConfirmationModal';
 import './product.css';
 import { BASE_URL } from '../util/util';
 
