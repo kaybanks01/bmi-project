@@ -36,7 +36,7 @@ session({
 });
 
 app.use(express.json());
-const allowedOrigins = ["https://bmi-shop.vercel.app", "http:git //localhost:3000"];
+const allowedOrigins = ["https://bmi-shop.vercel.app"];
 
 const corsOptions = {
   origin: (origin, callback) => {
