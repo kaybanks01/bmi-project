@@ -1,4 +1,3 @@
-import React from 'react'
 import './deleteconfirmation.css'
 import { BASE_URL } from '../util/util';
 
