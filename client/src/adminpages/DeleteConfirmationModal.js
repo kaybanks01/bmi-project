@@ -1,7 +1,10 @@
-import './deleteconfirmation.css'
+import React from 'react';
+import './deleteconfirmation.css';
 import { BASE_URL } from '../util/util';
 
 const DeleteConfirmationModal = ({ product, onClose, onDelete }) => {
+  if (!product) return null;
+
   return (
     <div className="modal-overlay">
       <div className="modal-content">
@@ -19,7 +22,7 @@ const DeleteConfirmationModal = ({ product, onClose, onDelete }) => {
           <button className="cancel-btn" onClick={onClose}>
             Cancel
           </button>
-          <button className="delete-btn" onClick={() => onDelete(product._id)}>
+          <button className="delete-btn" onClick={() => onDelete()}>
             Delete
           </button>
         </div>
