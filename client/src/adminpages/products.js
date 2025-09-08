@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import EditProductModal from './EditProductModal'
-import DeleteConfirmationModal from './DeleteConfirmationModal';
 import './product.css';
 import { BASE_URL } from '../util/util';
 
@@ -108,16 +107,16 @@ const Products = () => {
           onSave={handleSaveEdit} 
         />
       )}
-
+{/* 
       {showDeleteModal && (
         <DeleteConfirmationModal
           product={productToDelete}
           onClose={() => setShowDeleteModal(false)}
           onDelete={handleDelete}
         />
-      )}
+      )} */}
     </div>
-  );
+  )
 };
 
 export default Products;
