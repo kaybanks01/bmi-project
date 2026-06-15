@@ -39,7 +39,7 @@ const Products = () => {
 
       const result = await response.json();
       if (result.success) {
-        setProducts(products.filter((product) => product._id !== productId));
+        setProducts(products.filter((product) => product.product_id !== productId));
         setShowDeleteModal(false);
         setProductToDelete(null);
         alert("Product deleted successfully!");
