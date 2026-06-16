@@ -42,7 +42,7 @@ function Signin() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${BASE_URL}/signi`, {
+      const response = await fetch(`${BASE_URL}/signin`, {
         method: "POST",
         body: JSON.stringify(formData),
         headers: { "Content-Type": "application/json" },
