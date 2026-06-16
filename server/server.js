@@ -11,7 +11,9 @@ const path = require("path");
 
 connectDB();
 
-const allowedOrigins = ["https://bmi-project.vercel.app", "https://bmi-shop.vercel.app"];
+const allowedOrigins = [
+  "https://bmi-project-mu.vercel.app", "https://bmi-shop.vercel.app","https://bmi-project.vercel.app","http://localhost:3000"
+];
 
 const corsOptions = {
   origin: (origin, callback) => {
