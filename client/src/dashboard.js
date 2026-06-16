@@ -6,7 +6,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import AlertDialog from "./component/logout-dialog";
 import "./dashboard.css";
-import { BASE_URL } from "./util/util";
+
 
 function Dashboard() {
   const [data, setData] = useState({});
