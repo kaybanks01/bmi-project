@@ -1,1 +1,1 @@
-export const BASE_URL = "https://bmi-shop.vercel.app/api";gitgi
+export const BASE_URL = "https://bmi-shop.vercel.app/api";
