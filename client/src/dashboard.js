@@ -14,44 +14,21 @@ function Dashboard() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${BASE_URL}/dashboard`, {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-          credentials: "include",
-        });
-
-        if (response.status === 401) {
-          console.error("Unauthorized: Invalid session.");
-          navigate("/auth");
-          return;
-        }
-
-        const userData = await response.json();
-        setData(userData);
-      } catch (err) {
-        console.error("Error fetching data:", err);
-      }
-    };
-
-    fetchData();
-  }, [navigate]);
+  const savedUser = localStorage.getItem("user");
+  if (!savedUser) {
+    navigate("/auth");
+    return;
+  }
+  const userData = JSON.parse(savedUser);
+  setData(userData);
+}, [navigate]);
 
   const handleLogout = () => setOpen(true);
 
   const confirmLogout = async () => {
-    try {
-      await fetch(`${BASE_URL}logout`, {
-        method: "POST",
-        credentials: "include",
-      });
-    } catch (error) {
-      console.error("Error logging out:", error);
-    }
-
-    navigate("/auth");
-  };
+  localStorage.removeItem("user");
+  navigate("/auth");
+};
 
   return (
     <div className="dashboard-container">

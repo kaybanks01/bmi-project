@@ -55,9 +55,10 @@ function Signin() {
       if (!response.ok) {
         throw new Error(data.message || "Something went wrong");
       } else {
+        localStorage.setItem("user", JSON.stringify(data));
         toast.success("Signin successful!");
         setTimeout(() => navigate("/dashboard"), 1000);
-      }
+   }
     } catch (err) {
       setLoading(false);
       toast.error(err.message);
