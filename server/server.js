@@ -12,7 +12,10 @@ const path = require("path");
 connectDB();
 
 const allowedOrigins = [
-  "https://bmi-project-mu.vercel.app", "https://bmi-shop.vercel.app","https://bmi-project.vercel.app","http://localhost:3000"
+  "https://bmi-project-mu.vercel.app",
+  "https://bmi-shop.vercel.app",
+  "https://bmi-project.vercel.app",
+  "http://localhost:3000"
 ];
 
 const corsOptions = {
@@ -28,18 +31,18 @@ const corsOptions = {
   allowedHeaders: ["Content-Type", "Authorization"],
 };
 
-app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/upload", express.static(path.join(__dirname, "upload")));
 
+// Session BEFORE cors
 app.use(
   session({
     secret: process.env.SESSION_SECRET || "secret",
     saveUninitialized: false,
-    resave: false,
+    resave: true,          // ← changed to true
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URI,
       ttl: 14 * 24 * 60 * 60,
@@ -47,11 +50,14 @@ app.use(
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 14,
       secure: true,
-      sameSite: "none",   
+      sameSite: "none",
       httpOnly: true
     },
   })
 );
+
+// cors AFTER session
+app.use(cors(corsOptions));
 
 app.use("/api", router);
 
