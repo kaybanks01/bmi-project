@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const mongoose = require("mongoose");
 const User = require("./model/user.js");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -184,7 +185,7 @@ router.post("/upload", Upload.single("file"), async (req, res) => {
     uploadStream.end(req.file.buffer);
 
     uploadStream.on("finish", async () => {
-      const fileId = new Product({
+      const Product = new Product({
         productName,
         productDescription,
         price,
