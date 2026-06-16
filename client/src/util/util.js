@@ -1,1 +1,1 @@
-export const BASE_URL = "https://bmi-project.vercel.app/api";
+export const BASE_URL = "https://bmi-backend-zvei.onrender.com/api";
