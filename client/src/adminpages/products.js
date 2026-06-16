@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import EditProductModal from './EditProductModal';
-import DeleteConfirmationModal from './DeleteConfirmationModal';
 import './product.css';
 import { BASE_URL } from '../util/util';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [editingProduct, setEditingProduct] = useState(null);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [productToDelete, setProductToDelete] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -40,8 +37,6 @@ const Products = () => {
       const result = await response.json();
       if (result.success) {
         setProducts(products.filter((product) => product.product_id !== productId));
-        setShowDeleteModal(false);
-        setProductToDelete(null);
         alert("Product deleted successfully!");
       } else {
         alert(result.message || "Failed to delete product.");
@@ -101,12 +96,7 @@ const Products = () => {
                 <p>${product.price}</p>
                 <div className="product-actions">
                   <button onClick={() => handleEdit(product)}>Edit</button>
-                  <button
-                    onClick={() => {
-                      setProductToDelete(product);
-                      setShowDeleteModal(true);
-                    }}
-                  >
+                  <button onClick={() => handleDelete(product._id)}>
                     Delete
                   </button>
                 </div>
@@ -126,16 +116,6 @@ const Products = () => {
         />
       )}
 
-      {showDeleteModal && productToDelete && (
-        <DeleteConfirmationModal
-          product={productToDelete}
-          onClose={() => {
-            setShowDeleteModal(false);
-            setProductToDelete(null);
-          }}
-          onDelete={() => handleDelete(productToDelete._id)}
-        />
-      )}
     </div>
   );
 };
